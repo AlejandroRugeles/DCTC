@@ -1,0 +1,17 @@
+{
+  "name": "backend-dctc",
+  "version": "1.0.0",
+  "description": "Venta de víveres en fruvers de barrio. Este es el backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Alejandro Rugeles",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^10.0.0"
+  }
+}
