@@ -1,7 +1,7 @@
 const db = require("./firebase.js");
 
 // Obtener todos los usuarios
-function getUsers(callback){
+function getUsers(callback) {
     return db.collection("users").get()
         .then((docs) => {
             var arrayUsers = []
@@ -11,14 +11,14 @@ function getUsers(callback){
                 arrayUsers.push(obj);
             })
             // CUANDO LLEGAMOS ACÁ, SE DEBE ENVIAR LA RESPUESTA AL GET REQUEST
-        callback(arrayUsers);
-    }).catch((error) => {
-        callback(`Error to get users ${error}`);
-    })
-} 
+            callback(arrayUsers);
+        }).catch((error) => {
+            callback(`Error to get users ${error}`);
+        })
+}
 
 // Obtener un usuario específico
-function getUser(uid, callback){
+function getUser(uid, callback) {
     return db.collection("users").doc(uid).get()
         .then((refDoc) => {
             callback(refDoc.data())
@@ -29,7 +29,7 @@ function getUser(uid, callback){
 }
 
 // Crear un usuario
-function addUser(user, callback){
+function addUser(user, callback) {
     return db.collection("users").add(user)
         .then(() => {
             callback("Success");
@@ -40,36 +40,36 @@ function addUser(user, callback){
 }
 
 //Actualizar los datos completos de un usuario
-function updateUserTotally(uid, user, callback){
+function updateUserTotally(uid, user, callback) {
     return db.collection("users").doc(uid).set(user)
         .then(() => {
             callback("Success");
         })
-        .catch((error) =>{
+        .catch((error) => {
             callback(`Error to update user ${error}`);
         })
 }
 
 //Actualizar pacialmente los datos de un usuario
-function updateUserPartially(uid, user, callback){
+function updateUserPartially(uid, user, callback) {
     return db.collection("users").doc(uid).update(user)
         .then(() => {
             callback("Success");
         })
-        .catch((error) =>{
+        .catch((error) => {
             callback(`Error to get users ${error}`);
         })
 }
 
 //Borrar los datos de un usuario
-function deleteUser(uid, callback){
+function deleteUser(uid, callback) {
     return db.collection("users").doc(uid).delete()
-    .then(() => {
-        callback("Success");
-    })
-    .catch((error) =>{
-        callback(`Error to get users ${error}`);
-    })
+        .then(() => {
+            callback("Success");
+        })
+        .catch((error) => {
+            callback(`Error to get users ${error}`);
+        })
 }
 
 //Buscar los datos de un usuario
@@ -77,7 +77,7 @@ function searchUser(name, callback) {
     return db.collection('users').where("name", "==", name).get()
         .then((refDoc) => {
             var arrayUsers = [];
-            refDoc.forEach(doc => {       
+            refDoc.forEach(doc => {
                 //doc.id --> El id del documento         
                 arrayUsers.push(doc.data());
             })
