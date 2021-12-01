@@ -6,53 +6,53 @@ import Form from "react-bootstrap/Form";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import Logo from "../assets/img/Bolsa.png";
+import Logo from "../assets/img/Fruver.png";
 import Image from "react-bootstrap/Image";
 
 const NavBar = (props) => {
     return (
         <div>
             <Navbar bg="dark" variant="dark">
-            <Container>
-                <Navbar.Brand href="#home">
-                <Image src={Logo}
-                    roundedCircle
-                    width="40"
-                    height="40"
-                    className="d-inline-block align-top"
-                    />{' '}
-                Del campo a tu casa
-                </Navbar.Brand>
-            </Container>
-            <Container fluid>
-                <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse id="navbarScroll">
-                <Nav
-                    className="me-auto my-2 my-lg-0"
-                    style={{ maxHeight: '50px' }}
-                    navbarScroll
-                >
-                    <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                    <NavDropdown.Item href="#action1">Frutas</NavDropdown.Item>
-                    <NavDropdown.Item href="#action2">Verduras</NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">Lacteos y carnes</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5">
-                        Promociones
-                    </NavDropdown.Item>
-                    </NavDropdown>
-                </Nav>
-                <Form className="d-flex">
-                    <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                    />
-                    <Button variant="outline-light">Search</Button>
-                </Form>
-                </Navbar.Collapse>
-            </Container>
+                <Container>
+                    <Navbar.Brand href="#home">
+                        <Image src={Logo}
+                            roundedCircle
+                            width="30"
+                            height="30"
+                            className="d-inline-block align-top"
+                        />{' '}
+                        Del campo a tu casa
+                    </Navbar.Brand>
+                </Container>
+                <Container fluid>
+                    <Navbar.Toggle aria-controls="navbarScroll" />
+                    <Navbar.Collapse id="navbarScroll">
+                        <Nav
+                            className="me-auto my-2 my-lg-0"
+                            style={{ maxHeight: '50px' }}
+                            navbarScroll
+                        >
+                            <NavDropdown title="Productos" id="navbarScrollingDropdown">
+                                <NavDropdown.Item href="#action1">Frutas</NavDropdown.Item>
+                                <NavDropdown.Item href="#action2">Verduras</NavDropdown.Item>
+                                <NavDropdown.Item href="#action3">Lacteos y carnes</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action5">
+                                    Promociones
+                                </NavDropdown.Item>
+                            </NavDropdown>
+                        </Nav>
+                        <Form className="d-flex">
+                            <FormControl
+                                type="search"
+                                placeholder="Search"
+                                className="me-2"
+                                aria-label="Search"
+                            />
+                            <Button variant="outline-light">Search</Button>
+                        </Form>
+                    </Navbar.Collapse>
+                </Container>
             </Navbar>
         </div>
     )
