@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
 import NavBarR from "../components/NavBarR";
 import Logo from "../assets/img/bregister.jpg";
@@ -14,9 +14,17 @@ export default class Register extends Component {
 */
 const Register = () => {
   const registerForm = {
-    nombres: "",
-    dir: "",
+    name: "",
+    adress: "",
+    phone: "",
+    email: "",
+    password: "",
   };
+
+  const buttonClick = (option) => {
+    localStorage.setItem("Go Back", option);
+  };
+
   function onchange(e) {
     registerForm[e.target.name] = e.target.value;
     //console.log(registerForm);
@@ -47,7 +55,7 @@ const Register = () => {
           <Form.Group className="mb-3" controlId="formGridName">
             <Form.Label>Nombre completo</Form.Label>
             <Form.Control
-              name="nombres"
+              name="name"
               onChange={onchange}
               placeholder="Ingrese nombres y apellidos aquí"
             />
@@ -56,7 +64,7 @@ const Register = () => {
           <Form.Group className="mb-3" controlId="formGridAddress">
             <Form.Label>Dirección</Form.Label>
             <Form.Control
-              name="dir"
+              name="adress"
               onChange={onchange}
               placeholder="Dirección con calle, manzana, etc..."
             />
@@ -65,12 +73,19 @@ const Register = () => {
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridEmail">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Ingrese el email" />
+              <Form.Control
+                name="email"
+                onChange={onchange}
+                type="email"
+                placeholder="Ingrese el email"
+              />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridPhone">
               <Form.Label>Celular</Form.Label>
               <Form.Control
+                name="phone"
+                onChange={onchange}
                 type="Phone"
                 placeholder="Celular o teléfono de contacto"
               />
@@ -85,7 +100,12 @@ const Register = () => {
           <Row className="mb-3">
             <Form.Group className="mt-3" as={Col} controlId="formGridPassword">
               <Form.Label>Contraseña</Form.Label>
-              <Form.Control type="password" placeholder="Contraseña" />
+              <Form.Control
+                name="password"
+                onChange={onchange}
+                type="password"
+                placeholder="Contraseña"
+              />
             </Form.Group>
 
             <Form.Group className="mt-3" as={Col} controlId="formGridPassword">
@@ -105,6 +125,9 @@ const Register = () => {
                 variant="primary"
                 type="cancel"
                 size="lg"
+                left="10%"
+                href="/Home"
+                onClick={() => buttonClick("Go Back")}
               >
                 Cancelar
               </Button>

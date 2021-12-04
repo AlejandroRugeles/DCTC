@@ -2,14 +2,16 @@
 import Logo from "../assets/img/avatar.png";
 import Image from "react-bootstrap/Image";
 import Jquery from "jquery";
-import { FontawesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 import Background from "../assets/img/background.jpg";
 import NavBarR from "../components/NavBarR";
 import SignInButton from "../components/SignInButton";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { Form, Button, Container, Col, Row } from "react-bootstrap";
 
 const Login = () => {
+  const buttonClick = (option) => {
+    localStorage.setItem("Registrar", option);
+  };
+
   return (
     <div
       style={{ backgroundImage: `url(${Background})`, backgroundSize: "cover" }}
@@ -74,24 +76,34 @@ const Login = () => {
                       border: "0",
                       paddingLeft: "54px",
                       borderRadius: "5px",
+                      marginTop: "10px",
                     }}
                   />
                 </div>
                 <button
                   type="submit"
                   class="btn btn-primary"
-                  style={{ width: "60%", margin: "5px 0 25px" }}
+                  style={{
+                    width: "60%",
+                    margin: "5px 0 25px",
+                    marginTop: "20px",
+                  }}
                 >
                   <i class="fas fa-sign-in-alt"></i> Ingresar{" "}
                 </button>
                 <div>
-                  <button
-                    type="submit"
-                    class="btn btn-primary"
-                    style={{ width: "60%", margin: "5px 0 25px" }}
+                  <Button
+                    variant="primary"
+                    style={{
+                      width: "60%",
+                      margin: "5px 0 25px",
+                      marginTop: "-10px",
+                    }}
+                    href="/Register"
+                    onClick={() => buttonClick("Registar")}
                   >
-                    <i class="fas fa-sign-in-alt"></i> Registrar{" "}
-                  </button>
+                    Sing up
+                  </Button>
                 </div>
               </form>
               <div class="col-12 forgot">

@@ -4,7 +4,6 @@ import "../css/notf.css";
 
 import { Col, Button, Container } from "react-bootstrap";
 import NavBarR from "../components/NavBarR";
-import { Navigate } from "react-router-dom";
 
 const NotFound = () => {
   const buttonClick = (option) => {

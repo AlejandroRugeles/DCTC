@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import { Container, Row, CardGroup, Card, Button } from "react-bootstrap";
 import Manzana from "../assets/img/manzana.jpg";
 
@@ -57,8 +57,8 @@ const ResultList = () => {
             </Card.Text>
             <Button
               variant="primary"
-              onClick={() => manageCar("add", item.title)}
-            >
+              /*               onClick={() => manageCar("add", item.title)} */
+/*>
               Comprar
             </Button>
           </Card.Body>
@@ -70,7 +70,7 @@ const ResultList = () => {
 
     return cards;
   };
-
+  /* 
   const manageCar = (action, product) => {
     var carrito = JSON.parse(localStorage.getItem("carrito"));
     if (action == "add") {
@@ -78,8 +78,8 @@ const ResultList = () => {
     } else {
       carrito.pop(product);
     }
-  };
-
+  }; */
+/*
   return (
     <Container>
       <Row>
@@ -90,3 +90,65 @@ const ResultList = () => {
 };
 
 export default ResultList;
+ */
+
+//----------------------------------------------------------------------------------------
+
+import React from "react";
+import { Container, Row, CardGroup, Card, Button } from "react-bootstrap";
+
+import Queso from "../assets/img/queso.jpg";
+import Leche from "../assets/img/leche.jpg";
+import Jamon from "../assets/img/jamon.jpg";
+
+const ResultLacar = () => {
+  const listData = {
+    dairy: [
+      {
+        title: "Queso campesino",
+        price: 4000,
+        measure: "libra",
+        photo: Queso,
+      },
+      { title: "Jamón", price: 4800, measure: "libra", photo: Jamon },
+      {
+        title: "Leche entera",
+        price: 2400,
+        measure: "litro",
+        photo: Leche,
+      },
+    ],
+  };
+
+  const renderCards = (selectedProduct) => {
+    var products = listData[selectedProduct];
+    var cards = [];
+    products.map((item) => {
+      var card = (
+        <Card>
+          <Card.Img variant="top" src={item.photo} width="100" height="200" />
+          <Card.Body>
+            <Card.Title>{item.title}</Card.Title>
+            <Card.Text>
+              {item.measure}: ${item.price}
+            </Card.Text>
+            <Button variant="primary">Comprar</Button>
+          </Card.Body>
+        </Card>
+      );
+
+      cards.push(card);
+    });
+
+    return cards;
+  };
+  return (
+    <Container>
+      <Row>
+        <CardGroup>{renderCards("dairy")}</CardGroup>
+      </Row>
+    </Container>
+  );
+};
+
+export default ResultLacar;

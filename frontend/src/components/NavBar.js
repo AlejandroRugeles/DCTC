@@ -12,7 +12,7 @@ import Image from "react-bootstrap/Image";
 const NavBar = (props) => {
   function logout() {
     localStorage.removeItem("user");
-    window.location.href = "/Login";
+    window.location.href = "/";
   }
   return (
     <div>
@@ -36,17 +36,7 @@ const NavBar = (props) => {
               className="me-auto my-2 my-lg-0"
               style={{ maxHeight: "50px" }}
               navbarScroll
-            >
-              <NavDropdown title="Productos" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#action1">Frutas</NavDropdown.Item>
-                <NavDropdown.Item href="#action2">Verduras</NavDropdown.Item>
-                <NavDropdown.Item href="#action3">
-                  Lacteos y carnes
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">Promociones</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
+            ></Nav>
             <Form className="d-flex">
               <FormControl
                 type="search"

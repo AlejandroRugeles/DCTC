@@ -6,7 +6,9 @@ import Register from "./screens/Register";
 import NotFound from "./screens/NotFound";
 import Purchases from "./screens/Purchases";
 import Order from "./screens/Order";
-import SearchResults from "./screens/SearchResults";
+import Frutas from "./screens/Frutas";
+import Vegetales from "./screens/Vegetales";
+import Lacar from "./screens/Lacar";
 
 function App() {
   localStorage.setItem("carrito", JSON.stringify([]));
@@ -14,13 +16,15 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/SearchResults" element={<SearchResults />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="/*" element={<NotFound />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Purchases" element={<Purchases />} />
           <Route path="/Order" element={<Order />} />
+          <Route path="/Frutas" element={<Frutas />} />
+          <Route path="/Vegetales" element={<Vegetales />} />
+          <Route path="/Lacar" element={<Lacar />} />
         </Routes>
       </BrowserRouter>
     </div>
