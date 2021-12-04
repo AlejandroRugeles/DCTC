@@ -1,12 +1,13 @@
 // Forma para importar variables o funciones, cuando lo que se exporta es un objeto
 const dbE = require("./src/db/crud.js");
+const cors = require("cors");
 
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(express.json());
-
+app.use(cors());
 // Traer todos los usuarios
 app.get("/users", function (req, res) {
   dbE.getUsers(function (arrayUsers) {

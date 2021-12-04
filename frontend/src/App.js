@@ -6,13 +6,16 @@ import Register from "./screens/Register";
 import NotFound from "./screens/NotFound";
 import Purchases from "./screens/Purchases";
 import Order from "./screens/Order";
+import SearchResults from "./screens/SearchResults";
 
 function App() {
+  localStorage.setItem("carrito", JSON.stringify([]));
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/SearchResults" element={<SearchResults />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/*" element={<NotFound />} />
           <Route path="/Register" element={<Register />} />
